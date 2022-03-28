@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="/css/estilo.css" rel="stylesheet" type="text/css" media="screen"> 
+ 
+ 
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+  <script src="/js/funciones.js"></script>
+	<script src="/jquery-3.4.1.min.js"></script>
+
+
+  <title>Royal Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+	
+	
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-2">
+    	<!-- area de logo -->
+      <div class="panel panel-default bg-dark">
+        <div class="panel-heading">
+        <!--<h1>ROYAL MATH</h1>-->
+        </div>
+        <div class="panel-body bg-dark">
+          <div class="card text-center bg-secondary" style="color:white;">
+            <div class="card-header bg-dark"><h2>CALCULADORA FINANCIERA 2020SA</div>
+          <div class="card-body">
+            <img class="card-img-top" src="/img/logoFondo34.png" alt="Card image cap" style="max-height: 350px; max-width: 269px;">
+            <p class="card-text" style="color:black">CALCULADORA FINANCIERA es una aplicación que tiene el objetivo de brindar a los vendedores información sobre cuotas, anticipos sugeridos y descuentos sobre un total de facturación.  </p>
+          </div>
+            <div class="card-footer text-muted bg-dark">
+            Product developed by Luiskr1993
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+  	<div class="navbar-header">
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+      		<span class="navbar-toggler-icon"></span>
+      		<span class="icon-bar"></span>
+      		<span class="icon-bar"></span>
+      	<span class="icon-bar"></span>
+    	</button>
+    	<a class="navbar-brand" href="#">Sis. Avanzados de Cocina</a>
+  	</div>
+    
+  </nav>
+
+  <!-- **************************INICIA LA SECCIÓN DE FORMULARIO***********************************************-->
+      <div class="panel panel-default">
+        <div class="panel-heading bg-secondary">
+          <h2 class="panel-title" text-decoration: bold;">
+          <strong>CALCULADORA</strong> </h2>
+        </div> 
+        <div class="panel-body border-info " font-size: small;">
+          <form role="form">
+              <!--********************* PRECIO DE VENTA ************************-->
+              <div class="form-group col-sm-6  mb-2 mx-sm-5 " style="max-width: 400px; margin:auto;">
+                
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;"><STRONG>PRECIO VENTA</STRONG></div>
+                  </div>
+                  <input type="number" class="form-control text-center" id="inputTotal" placeholder="0.00">
+                  <div class="input-group-prepend">
+                      <button class="btn btn-secondary" type="submit" onclick="anticipoSugerido(this.id); return false;">
+                        <img src="/img/simbolo-de-chequeado.png"  style="max-height: 20px; max-width: 20px;">
+                      </button>                  
+                  </div>
+                </div>
+              </div>
+              <!--********************* % DE DESCUENTO ************************-->
+              <div class="form-group col-sm-6 mb-0 mx-sm-5 " style="max-width: 400px; margin:auto;">
+              
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" >%Descuento(op)</div>
+                  </div>
+                  <input type="number" class="form-control text-center" id="inputDescuento" placeholder="0.00">
+                  <div class="input-group-prepend">
+                      <button class="btn btn-secondary" type="submit" onclick="calculaDescuento(this.id); return false; " aria-expanded="true">
+                        <img src="/img/simbolo-de-chequeado.png"  style="max-height: 20px; max-width: 20px;">
+                      </button>                  
+                  </div>
+                </div>
+              </div>
+
+              <!--**********************LINEA DE SEPARACIÓN**********************************-->
+              <hr class="style13 mb-1">
+              <!--********************* ANTICIPO SUGERIDO************************-->
+              <div class="form-group  col-sm-6 mb-2 mx-sm-5" style="max-width: 400px; margin:auto; margin:auto;" >
+                
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" ><strong>A. SUGERIDO </strong></div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="inputAnticipoSugerido" placeholder="0.00" style="background-color: #94F3AD; font-weight:bold;">
+                </div>
+              </div>
+              <!--********************* ANTICIPO RECIBIDO************************-->
+              <div class="form-group col-sm-6 mb-0 mx-sm-5" style="max-width: 400px; margin:auto;">
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" ><strong>A. RECIBIDO</strong></div>
+                  </div>
+                  <input type="number" class="form-control text-center" id="inputAnticipoRecibido" placeholder="0.00" style="background-color: #CCF8C9; font-weight: bold;" text="0">
+                  <div class="input-group-prepend">
+                      <button class="btn btn-secondary" type="submit" onclick="restoDeCalculos(this.id); return false;">
+                        <img src="/img/simbolo-de-chequeado.png"  style="max-height: 20px; max-width: 20px;">
+                      </button>                  
+                  </div>
+                </div>
+              </div>
+              <!--**********************LINEA DE SEPARACIÓN**********************************-->
+              <hr class="style13 mb-1">
+              <!--********************* BALANCE ************************-->
+              <div class="form-group col-sm-6 mb-2 mx-sm-5" style="max-width: 400px; margin:auto;">
+            
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text text-center" style="max-width: 200px; min-width: 150px; " >BALANCE</div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="inputBalance" placeholder="0.00" style="background-color: #F1F1F0">
+                </div>
+              </div>
+              <!--********************* CUOTA ************************-->
+              <div class="form-group col-sm-6 mb-2 mx-sm-5" style="max-width: 400px; margin:auto;">
+                
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" >CUOTA</div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="inputCuota" placeholder="0.00" style="background-color: #F1F1F0">
+                </div>
+              </div>
+              <!--********************* SALDO A FINANCIAR ************************-->
+              <div class="form-group col-sm-6 mb-1 mx-sm-5" style="max-width: 400px; margin:auto;">
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><strong>SALDO A FINANCIAR</strong></div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="inputSaldoFinanciar" placeholder="0.00" style="background-color: #F5EF8E; font-weight:bold;">
+                </div>
+              </div>
+              <!--**********************LINEA DE SEPARACIÓN**********************************-->
+              <hr class="style13 mb-1">
+              <!--********************* 24 PAGOS ************************-->
+              <div class="form-group col-sm-6 mb-1 mx-sm-5" style="max-width: 400px; margin:auto;">
+               
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" >24 PAGOS</div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="input24" placeholder="0.00" style="background-color: #9CD7FF">
+                </div>
+              </div>
+              <!--********************* 18 CUOTAS ************************-->
+              <div class="form-group col-sm-6 mb-1 mx-sm-5" style="max-width: 400px; margin:auto;">
+              
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" >18 PAGOS</div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="input18" placeholder="0.00" style="background-color: #AED9F5">
+                </div>
+              </div>
+              <!--********************* 12 CUOTAS ************************-->
+              <div class="form-group col-sm-6 mb-1 mx-sm-5" style="max-width: 400px; margin:auto;">
+        
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" >12 PAGOS</div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="input12" placeholder="0.00" style="background-color: #C0E2F9">
+                </div>
+              </div>
+              <!--********************* 6 CUOTAS ************************-->
+              <div class="form-group col-sm-6 mb-2 mx-sm-5" style="max-width: 400px; margin:auto;">
+         
+                <div id class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;" >06 PAGOS</div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="input6" placeholder="0.00" style="background-color: #D2E8F8">
+                </div>
+              </div>
+              <!--********************* FACTURAR ************************-->
+              <div class="form-group col-sm-6 mb-5 mx-sm-5" style="max-width: 400px; margin:auto;">
+               
+                <div id class="input-group input-group-sm" style="text-decoration: bold;">
+                  <div class="input-group-prepend ">
+                    <div class="input-group-text" style="max-width: 200px; min-width: 150px;"><strong>FACTURAR</strong></div>
+                  </div>
+                  <input type="text" readonly class="form-control text-center" id="inputFacturar" placeholder="0.00" style="background-color: #84F3EF; font-weight: bold;font-size: larger;">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-secondary" type="submit" onclick="reiniciar(this.id);return true;" >
+                      <img src="/img/flecha-circular.png"  style="max-height: 20px; max-width: 20px;">
+                    </button>
+                  </div>
+                </div>
+              </div>
+              </div>
+              
+          </form>
+        </div>
+      </div>
+
+      <!-- **************************FINALIZA LA SECCIÓN DE FORMULARIO***********************************************-->
+</div>
+
+
+<script src="/js/bootstrap.js"></script>
+<script src="/js/funciones.js"></script>
+</body>
+</html>
+
+

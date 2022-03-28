@@ -1,0 +1,19 @@
+.imagenFondo{
+	background: url("D:/luisk/ProyectosPropios/RoyalPrestige/Calculadora/img/logoFondo1.png");
+	background-position: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: transparent;
+
+}
+
+.img{
+	max-height: 649px;
+	max-width: 500px;
+}
+
+hr.style13 {
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
